@@ -17,7 +17,7 @@ class ScoreController extends Controller
      */
     public function index()
     {
-        //
+        return Score::all();
     }
 
     /**
@@ -38,7 +38,7 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Score::create(['deviceid'=>'12321','paham'=>1]);
     }
 
     /**
