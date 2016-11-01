@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/home', function(){
 	return \App\User::all();
 });
+
+Route::resource('/score','ScoreController@index');
