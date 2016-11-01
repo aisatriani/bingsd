@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function(){
-	return User::all();
+	return \App\User::all();
 });
