@@ -20,6 +20,17 @@ class ScoreController extends Controller
         return Score::all();
     }
 
+    public function getScore()
+    {
+        $scorePaham = Score::where(['paham'=>1])->count();
+        $scoreTdkPaham = Score::where(['paham'=>0])->count();
+        $data = [
+            'paham' => $scorePaham,
+            'tdk_paham' => $scoreTdkPaham
+        ];
+        return $data;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +49,10 @@ class ScoreController extends Controller
      */
     public function store(Request $request)
     {
-        Score::create(['deviceid'=>'12321','paham'=>1]);
+        $input = $request->all();
+
+        $score = Score::create($input);
+        return $score;
     }
 
     /**
